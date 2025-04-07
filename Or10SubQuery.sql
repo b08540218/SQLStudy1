@@ -5,7 +5,7 @@
 ***/
 
 /*
-당일행 서브쿼리
+단일행 서브쿼리
 형식] selcet * from 테이브명 hwere 컬럼=(
         select 컬럼 from 테이블명 where 조건 
         );
@@ -222,6 +222,8 @@ where rnum BETWEEN 21 and 30;
 
 
 commit;
+
+
 
 
 
