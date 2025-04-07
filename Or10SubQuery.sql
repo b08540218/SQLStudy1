@@ -6,7 +6,7 @@
 
 /*
 단일행 서브쿼리
-형식] selcet * from 테이브명 hwere 컬럼=(
+형식] selcet * from 테이브명 where 컬럼=(
         select 컬럼 from 테이블명 where 조건 
         );
         ※괄호안의 서브쿼리는 반드시 하나의 결과를 인출해야한다.
