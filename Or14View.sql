@@ -71,6 +71,7 @@ SELECT * FROM view_employees;
     first_name과 last_name이 연결된 형태로 출력하시오. (concat)
 	뷰명 : emp_st_man_view
 */
+
 --문제의 조건대로 select문 작성
 SELECT employee_id, concat(first_name||' ', last_name), email, manager_id
 from employees where job_id='ST_MAN';
@@ -88,9 +89,12 @@ SELECT * FROM emp_st_man_view;
 CREATE view emp_st_man_view(e_id, name, email, m_id)
 as
     select
-        employee_id, first_name, last_name, email, manager_id, job_id,
-    concat ('first_name', 'last_name') from employees where job_id='ST_MAN';
-
+        employee_id, /*first_name, last_name,*/
+        email, manager_id, /*job_id,*/ concat(first_name||' ',last_name)
+        from employees where job_id='ST_MAN';
+/*****************************
+-- || 문자열 공부 다시 확인
+*****************************/
 -------------------------------------------------------------------------
 /*
 퀴즈] 사원번호, 이름, 연봉을 계산하여 출력하는 뷰를 생성하시오.
@@ -132,13 +136,14 @@ as
 create or REPLACE VIEW v_emp_salary(emp_id, l_name, annual_sal)
 AS
     SELECT employee_id, last_name,
-    
+    ltrim(to_char((salary+(salary*nvl(commission_pct,0)))*12, '999,000'))
     /*(salary+(salay*30))*12*/
     from employees /*where*/ /*to_char(salary, '999,000')*/ ;
+/********************
 --nvl 다시 확인 할것
 --보너스율 commission_pct
---  (salary+(salay*30))*12
-
+--(salary+(salay*30))*12
+*********************/
 ------------------------------------------------------------------------
 /*
 -조인을 통한 View 생성
