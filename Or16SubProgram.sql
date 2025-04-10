@@ -40,13 +40,12 @@ end;
 /*데이터 사전에서 확인할때는 '대문자'로 저장되므로 아래와 같이 upper 함수를
 사용해야한다 */
 
-SELECT * FROM user_sourcee where name like upper('%pcd_emp_salary%');
+SELECT * FROM user_source where name like upper('%pcd_emp_salary%');
 
 --만약 첫 실행이라면 최초 한번 실행해준다.
 set SERVEROUTPUT on;
 --프로시저의 호출은 호스트환경에서 execute 명령을 이용한다.
 EXECUTE pcd_emp_salary;
-
 
 
 
